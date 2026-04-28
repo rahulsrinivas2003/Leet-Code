@@ -1,25 +1,9 @@
 class Solution:
-    def findDifference(self, nums1: List[int], nums2: List[int]) -> List[List[int]]:
-        
-        nums1 = list(set(nums1))
-        nums2 = list(set(nums2))
-        o1 = []
-        o2 = []
-        answer = []
+    def findDifference(self, nums1, nums2):
+        set1 = set(nums1)
+        set2 = set(nums2)
 
-        for num in nums1:
+        list1 = [x for x in set1 if x not in set2]
+        list2 = [x for x in set2 if x not in set1]
 
-            if num not in nums2:
-
-                o1.append(num)
-        
-        for num in nums2:
-
-            if num not in nums1:
-
-                o2.append(num)
-        
-        answer.append(o1)
-        answer.append(o2)
-
-        return answer
+        return [list1, list2]
